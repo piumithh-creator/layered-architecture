@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.ExpensesApprovalViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Expenses Approval" styleClass="heading-title" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Review and approve pending expenses" styleClass="heading-subtitle" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Filter Section -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Filter by Project:" textFill="#e5e7eb" />
+                  <ComboBox fx:id="cmbProjects" prefWidth="200.0" />
+                  <Label text="Status:" textFill="#e5e7eb" />
+                  <ComboBox fx:id="cmbStatus" prefWidth="150.0" />
+                  <Button text="Filter" onAction="#handleFilter" styleClass="view-button" />
+                  <Button text="Clear" onAction="#handleClear" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets left="24.0" right="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Pending Expenses Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="tblExpenses" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colExpenseId" text="Expense ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colProjectId" text="Project ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="120.0" />
+                        <TableColumn fx:id="colDescription" text="Description" prefWidth="200.0" />
+                        <TableColumn fx:id="colAmount" text="Amount" prefWidth="100.0" />
+                        <TableColumn fx:id="colSubmittedBy" text="Submitted By" prefWidth="120.0" />
+                        <TableColumn fx:id="colSubmissionDate" text="Submission Date" prefWidth="120.0" />
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0" />
+                        <TableColumn fx:id="colActions" text="Actions" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Summary Section -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Pending Expenses:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalPending" text="0" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Total Amount:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalAmount" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>

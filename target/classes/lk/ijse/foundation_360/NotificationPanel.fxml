@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="notificationPanel" spacing="8.0" styleClass="notification-panel"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="lk.ijse.foundation_360.controller.NotificationPanelController">
+   <children>
+      <!-- Header -->
+      <HBox alignment="CENTER_LEFT" spacing="8.0">
+         <children>
+            <Label text="Notifications" styleClass="notification-header">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnMarkAllRead" text="Mark All Read" onAction="#markAllAsRead" styleClass="btn-mark-read" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+      </HBox>
+      
+      <!-- Separator -->
+      <Separator />
+      
+      <!-- Notifications List -->
+      <ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" styleClass="notification-scroll">
+         <content>
+            <VBox fx:id="notificationList" spacing="4.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      
+      <!-- Empty State -->
+      <Label fx:id="lblEmpty" text="No notifications" styleClass="empty-label" visible="false" />
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</VBox>
+

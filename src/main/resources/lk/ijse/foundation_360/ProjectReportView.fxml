@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.ProjectReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Project Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Project status and progress details" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+                  <Button text="Back" onAction="#back" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Project Info Section -->
+            <HBox spacing="24.0">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Project ID:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectId" text="PRJ-001" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Project Name:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectName" text="Building Construction" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Location:" textFill="#9ca3af" />
+                        <Label fx:id="lblLocation" text="Colombo" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Client Name:" textFill="#9ca3af" />
+                        <Label fx:id="lblClientName" text="ABC Company" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Sales Representative:" textFill="#9ca3af" />
+                        <Label fx:id="lblSalesRep" text="John Doe" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Project Status:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectStatus" text="Approved" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+
+            <!-- Phases Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Project Phases" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblPhases" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colPhaseName" text="Phase Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colStartDate" text="Start Date" prefWidth="120.0" />
+                        <TableColumn fx:id="colEndDate" text="End Date" prefWidth="120.0" />
+                        <TableColumn fx:id="colDuration" text="Duration (Days)" prefWidth="120.0" />
+                        <TableColumn fx:id="colCostPerPhase" text="Cost Per Phase" prefWidth="150.0" />
+                        <TableColumn fx:id="colCompletionStatus" text="Completion Status" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Summary Section -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Project Cost:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalCost" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Total Time Duration:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalDuration" text="0 Days" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Estimated Revenue:" textFill="#9ca3af" />
+                        <Label fx:id="lblEstimatedRevenue" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Profit/Loss:" textFill="#9ca3af" />
+                        <Label fx:id="lblProfitLoss" text="Rs. 0.00" textFill="#28A745">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Final Approval Status:" textFill="#9ca3af" />
+                        <Label fx:id="lblFinalApproval" text="Pending" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

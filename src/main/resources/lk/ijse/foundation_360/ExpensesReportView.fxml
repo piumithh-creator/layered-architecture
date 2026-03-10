@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.ExpensesReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Expenses Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Project expenses and financial details" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Filter Section -->
+            <HBox spacing="24.0">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Expense ID:" textFill="#9ca3af" />
+                        <Label fx:id="lblExpenseId" text="EXP-001" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Expense Category:" textFill="#9ca3af" />
+                        <Label fx:id="lblCategory" text="Materials" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Project ID:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectId" text="PRJ-001" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Date Range:" textFill="#9ca3af" />
+                        <Label fx:id="lblDateRange" text="2024-01-01 to 2024-01-31" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+
+            <!-- Expenses Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Expense Details" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblExpenses" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="120.0" />
+                        <TableColumn fx:id="colExpenseType" text="Expense Type" prefWidth="150.0" />
+                        <TableColumn fx:id="colDescription" text="Description" prefWidth="200.0" />
+                        <TableColumn fx:id="colPaidTo" text="Paid To" prefWidth="150.0" />
+                        <TableColumn fx:id="colPaymentMethod" text="Payment Method" prefWidth="130.0" />
+                        <TableColumn fx:id="colAmount" text="Amount" prefWidth="120.0" />
+                        <TableColumn fx:id="colApprovedBy" text="Approved By" prefWidth="120.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Summary Section -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Expenses:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalExpenses" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Project Wise Expenses:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectWise" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Monthly Expenses:" textFill="#9ca3af" />
+                        <Label fx:id="lblMonthlyExpenses" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

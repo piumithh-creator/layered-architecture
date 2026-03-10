@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.PreviousProjectsViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Previous Projects" styleClass="heading-title" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Completed project history and financial details" styleClass="heading-subtitle" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Filter Section -->
+            <HBox spacing="16.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Search:" textFill="#e5e7eb" />
+                  <TextField fx:id="txtSearch" promptText="Project ID, Name, or Client" prefWidth="300.0" />
+                  <Button text="Search" onAction="#handleSearch" styleClass="view-button" />
+                  <Button text="Clear" onAction="#handleClear" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets left="24.0" right="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Projects Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="tblProjects" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colProjectId" text="Project ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colProjectName" text="Project Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colClient" text="Client" prefWidth="150.0" />
+                        <TableColumn fx:id="colCompletionDate" text="Completion Date" prefWidth="120.0" />
+                        <TableColumn fx:id="colTotalCost" text="Total Cost" prefWidth="120.0" />
+                        <TableColumn fx:id="colRevenue" text="Revenue" prefWidth="120.0" />
+                        <TableColumn fx:id="colProfitLoss" text="Profit/Loss" prefWidth="120.0" />
+                        <TableColumn fx:id="colActions" text="Actions" prefWidth="100.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Summary Section -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Projects:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalProjects" text="0" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Total Revenue:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalRevenue" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Total Costs:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalCosts" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Net Profit/Loss:" textFill="#9ca3af" />
+                        <Label fx:id="lblNetProfitLoss" text="Rs. 0.00" textFill="#28A745">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>

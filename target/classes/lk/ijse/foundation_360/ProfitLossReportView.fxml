@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.ProfitLossReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Profit &amp; Loss Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Project profitability analysis" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+                  <Button text="Back" onAction="#back" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Report Period -->
+            <HBox spacing="24.0">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Report Period:" textFill="#9ca3af" />
+                        <Label fx:id="lblReportPeriod" text="January 2024" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Generated On:" textFill="#9ca3af" />
+                        <Label fx:id="lblGeneratedOn" text="2024-01-31" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+
+            <!-- Revenue Section -->
+            <VBox spacing="12.0">
+               <children>
+                  <Label text="Revenue" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblRevenue" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colProjectId" text="Project ID" prefWidth="120.0" />
+                        <TableColumn fx:id="colProjectName" text="Project Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colContractValue" text="Contract Value" prefWidth="150.0" />
+                        <TableColumn fx:id="colAdditionalRevenue" text="Additional Revenue" prefWidth="150.0" />
+                        <TableColumn fx:id="colTotalRevenue" text="Total Revenue" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Expenses Section -->
+            <VBox spacing="12.0">
+               <children>
+                  <Label text="Expenses" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblExpenses" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colExpenseCategory" text="Category" prefWidth="200.0" />
+                        <TableColumn fx:id="colExpenseAmount" text="Amount" prefWidth="150.0" />
+                        <TableColumn fx:id="colExpensePercentage" text="Percentage (%)" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Summary Section -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Revenue:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalRevenue" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Expenses:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalExpenses" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Net Profit/Loss:" textFill="#9ca3af" />
+                        <Label fx:id="lblNetProfitLoss" text="Rs. 0.00" textFill="#28A745">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Profit Margin:" textFill="#9ca3af" />
+                        <Label fx:id="lblProfitMargin" text="0.00%" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>

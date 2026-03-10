@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.SalaryReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Salary Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Employee salary and payment details" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Filter Section -->
+            <HBox spacing="24.0">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Month / Year:" textFill="#9ca3af" />
+                        <Label fx:id="lblMonthYear" text="January 2024" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Department:" textFill="#9ca3af" />
+                        <Label fx:id="lblDepartment" text="All Departments" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Employee Type:" textFill="#9ca3af" />
+                        <Label fx:id="lblEmployeeType" text="All Types" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+
+            <!-- Salary Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Employee Salary Details" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblSalary" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colEmployeeId" text="Employee ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colEmployeeName" text="Employee Name" prefWidth="150.0" />
+                        <TableColumn fx:id="colRole" text="Role" prefWidth="120.0" />
+                        <TableColumn fx:id="colBasicSalary" text="Basic Salary" prefWidth="120.0" />
+                        <TableColumn fx:id="colOtHours" text="OT Hours" prefWidth="100.0" />
+                        <TableColumn fx:id="colOtAmount" text="OT Amount" prefWidth="120.0" />
+                        <TableColumn fx:id="colAllowances" text="Allowances" prefWidth="120.0" />
+                        <TableColumn fx:id="colDeductions" text="Deductions" prefWidth="120.0" />
+                        <TableColumn fx:id="colNetSalary" text="Net Salary" prefWidth="120.0" />
+                        <TableColumn fx:id="colPaymentStatus" text="Payment Status" prefWidth="120.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Footer -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Salary Paid:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalSalary" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Approved By:" textFill="#9ca3af" />
+                        <Label fx:id="lblApprovedBy" text="Admin" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

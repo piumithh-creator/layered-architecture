@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.StockReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Stock Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Inventory status and availability" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+                  <Button text="Back" onAction="#back" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- Available Items Section -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Available Items" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblAvailableItems" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colItemId" text="Item ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colItemName" text="Item Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="120.0" />
+                        <TableColumn fx:id="colQuantity" text="Quantity Available" prefWidth="140.0" />
+                        <TableColumn fx:id="colMinRequired" text="Minimum Required" prefWidth="140.0" />
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="120.0" />
+                        <TableColumn fx:id="colStoreLocation" text="Store Location" prefWidth="150.0" />
+                        <TableColumn fx:id="colLastUpdated" text="Last Updated" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Out of Stock Items Section -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Non-Available Items (Out of Stock)" textFill="#ef4444" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblOutOfStockItems" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colOutItemId" text="Item ID" prefWidth="100.0" />
+                        <TableColumn fx:id="colOutItemName" text="Item Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colOutCategory" text="Category" prefWidth="120.0" />
+                        <TableColumn fx:id="colOutQuantity" text="Quantity Available" prefWidth="140.0" />
+                        <TableColumn fx:id="colOutMinRequired" text="Minimum Required" prefWidth="140.0" />
+                        <TableColumn fx:id="colOutStatus" text="Status" prefWidth="120.0" />
+                        <TableColumn fx:id="colOutStoreLocation" text="Store Location" prefWidth="150.0" />
+                        <TableColumn fx:id="colOutLastUpdated" text="Last Updated" prefWidth="150.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.GrnReportViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Goods Receive Note (GRN) Report" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label text="Supplier goods receiving details" textFill="#9ca3af">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button text="Export to Excel" onAction="#exportToExcel" styleClass="view-button" />
+                  <Button text="Export to PDF" onAction="#exportToPDF" styleClass="view-button" />
+                  <Button text="Back" onAction="#back" styleClass="nav-button" />
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="24.0" right="24.0" top="24.0" />
+               </padding>
+            </HBox>
+
+            <!-- GRN Info Section -->
+            <HBox spacing="24.0">
+               <children>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="GRN Number:" textFill="#9ca3af" />
+                        <Label fx:id="lblGrnNumber" text="GRN-001" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Supplier Name:" textFill="#9ca3af" />
+                        <Label fx:id="lblSupplierName" text="ABC Suppliers" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Supplier Contact:" textFill="#9ca3af" />
+                        <Label fx:id="lblSupplierContact" text="0771234567" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Received Date:" textFill="#9ca3af" />
+                        <Label fx:id="lblReceivedDate" text="2024-01-15" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Project ID:" textFill="#9ca3af" />
+                        <Label fx:id="lblProjectId" text="PRJ-001" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+
+            <!-- Items Table -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Received Items" textFill="#e5e7eb" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblGrnItems" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colItemCode" text="Item Code" prefWidth="100.0" />
+                        <TableColumn fx:id="colItemName" text="Item Name" prefWidth="200.0" />
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="120.0" />
+                        <TableColumn fx:id="colOrderedQty" text="Ordered Quantity" prefWidth="130.0" />
+                        <TableColumn fx:id="colReceivedQty" text="Received Quantity" prefWidth="130.0" />
+                        <TableColumn fx:id="colUnitPrice" text="Unit Price" prefWidth="100.0" />
+                        <TableColumn fx:id="colTotalPrice" text="Total Price" prefWidth="120.0" />
+                        <TableColumn fx:id="colQualityStatus" text="Quality Status" prefWidth="120.0" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </VBox>
+
+            <!-- Footer -->
+            <HBox spacing="24.0" alignment="CENTER_RIGHT">
+               <children>
+                  <VBox spacing="8.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Label text="Total Received Value:" textFill="#9ca3af" />
+                        <Label fx:id="lblTotalValue" text="Rs. 0.00" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Received By:" textFill="#9ca3af" />
+                        <Label fx:id="lblReceivedBy" text="Store Keeper" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="8.0">
+                     <children>
+                        <Label text="Verified By:" textFill="#9ca3af" />
+                        <Label fx:id="lblVerifiedBy" text="Admin" textFill="#e5e7eb" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

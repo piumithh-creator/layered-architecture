@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.RegisterController">
+   <children>
+      <StackPane AnchorPane.topAnchor="0.0"
+                 AnchorPane.bottomAnchor="0.0"
+                 AnchorPane.leftAnchor="0.0"
+                 AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" spacing="24.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="4.0">
+                     <children>
+                        <Label text="Create Account" styleClass="heading-title" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Set up your Foundation 360 access"
+                               styleClass="heading-subtitle"
+                               textFill="#9ca3af">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+
+                  <VBox alignment="TOP_CENTER" spacing="18.0" maxWidth="820.0" styleClass="card">
+                     <children>
+                        <GridPane hgap="16.0" vgap="12.0">
+                           <children>
+                              <Label text="Username" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField fx:id="txtUsername" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                              <Label text="Password" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <PasswordField fx:id="txtPassword" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                              <Label text="Role" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <ComboBox fx:id="cmbRole" GridPane.rowIndex="1" GridPane.columnIndex="2" prefWidth="160"/>
+
+                              <Label text="Email" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField fx:id="txtEmail" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+                              <Label text="Contact" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField fx:id="txtContact" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                              <Label text="Create Date" GridPane.rowIndex="2" GridPane.columnIndex="2">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <DatePicker fx:id="dpCreateDate" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                           </children>
+                        </GridPane>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                           <children>
+                              <Button fx:id="btnBack" text="Back" onAction="#back"/>
+                              <Button fx:id="btnSubmit" text="Submit" onAction="#submit"/>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="20" right="24" bottom="24" left="24"/>
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="24" right="24" bottom="24" left="24"/>
+               </padding>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

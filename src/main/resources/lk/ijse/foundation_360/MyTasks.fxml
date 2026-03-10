@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="lk.ijse.foundation_360.controller.MyTasksController"
+      spacing="16.0" alignment="TOP_CENTER">
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20" />
+   </padding>
+   
+   <children>
+      <!-- Header Section -->
+      <HBox alignment="CENTER_LEFT" spacing="16.0">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="My Tasks" styleClass="heading-title">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="View and manage your assigned tasks" textFill="#718096">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button text="+ New Task" onAction="#addTask" styleClass="success-button" />
+            <Button text="⟳ Refresh" onAction="#refreshTasks" styleClass="secondary-button" />
+         </children>
+      </HBox>
+      
+      <!-- Filter Section -->
+      <HBox spacing="12.0" alignment="CENTER_LEFT">
+         <children>
+            <Label text="Filter by Status:">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbStatusFilter" promptText="All Tasks" prefWidth="150.0" onAction="#filterTasks">
+               <items>
+                  <javafx.collections.FXCollections fx:factory="observableArrayList">
+                     <String>All Tasks</String>
+                     <String>Pending</String>
+                     <String>In Progress</String>
+                     <String>Completed</String>
+                     <String>On Hold</String>
+                  </javafx.collections.FXCollections>
+               </items>
+            </ComboBox>
+            
+            <Label text="Search:">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="24.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtSearch" promptText="Search tasks..." prefWidth="250.0" onKeyReleased="#searchTasks" />
+         </children>
+      </HBox>
+      
+      <!-- Tasks Table -->
+      <TableView fx:id="tblTasks" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="colTaskId" text="Task ID" prefWidth="80.0" />
+            <TableColumn fx:id="colTaskName" text="Task Name" prefWidth="200.0" />
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="250.0" />
+            <TableColumn fx:id="colProject" text="Project" prefWidth="150.0" />
+            <TableColumn fx:id="colPriority" text="Priority" prefWidth="100.0" />
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="120.0" />
+            <TableColumn fx:id="colDueDate" text="Due Date" prefWidth="120.0" />
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="180.0" />
+         </columns>
+      </TableView>
+      
+      <!-- Summary Section -->
+      <HBox spacing="20.0" alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" spacing="8.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets top="16" right="16" bottom="16" left="16" />
+               </padding>
+               <children>
+                  <Label text="Total Tasks" styleClass="summary-card-title">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalTasks" text="0" styleClass="summary-card-value">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <VBox alignment="CENTER" spacing="8.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets top="16" right="16" bottom="16" left="16" />
+               </padding>
+               <children>
+                  <Label text="Pending" styleClass="summary-card-title">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPendingTasks" text="0" textFill="#d69e2e">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <VBox alignment="CENTER" spacing="8.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets top="16" right="16" bottom="16" left="16" />
+               </padding>
+               <children>
+                  <Label text="In Progress" styleClass="summary-card-title">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblInProgressTasks" text="0" textFill="#3182ce">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <VBox alignment="CENTER" spacing="8.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets top="16" right="16" bottom="16" left="16" />
+               </padding>
+               <children>
+                  <Label text="Completed" styleClass="summary-card-title">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCompletedTasks" text="0" textFill="#38a169">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

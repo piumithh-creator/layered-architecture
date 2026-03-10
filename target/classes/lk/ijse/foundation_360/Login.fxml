@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+    Clean, modern login for Foundation 360
+    - No background image, subtle gradient background
+    - Centered card with rounded inputs and button
+-->
+<AnchorPane id="AnchorPane"
+            prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.LoginController_1">
+
+    <children>
+        <!-- Center everything -->
+        <StackPane AnchorPane.topAnchor="0.0"
+                   AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0">
+            <children>
+                <VBox alignment="CENTER" spacing="28.0">
+                    <!-- Top section: logo text + Welcome -->
+                    <children>
+                        <VBox alignment="CENTER" spacing="4.0" translateY="-12.0">
+                            <children>
+                                <Label text="Foundation 360" textFill="#e5e7eb">
+                                    <font>
+                                        <Font name="System Bold" size="34.0"/>
+                                    </font>
+                                </Label>
+                                <Label text="Welcome Back!" textFill="#9ca3af">
+                                    <font>
+                                        <Font size="20.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+
+                        <!-- Card with form -->
+                        <!-- Centered form card -->
+                        <VBox alignment="CENTER"
+                              spacing="18.0"
+                              prefWidth="380.0"
+                              maxWidth="420.0"
+>
+
+                            <!-- Username / Email -->
+                            <children>
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label text="Username / Email" textFill="#e5e7eb">
+                                            <font>
+                                                <Font size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="txtUsername"
+                                                   promptText="Enter your username or email"/>
+                                    </children>
+                                </VBox>
+
+                                <!-- Password -->
+                                <VBox spacing="6.0">
+                                    <children>
+                                        <Label text="Password" textFill="#e5e7eb">
+                                            <font>
+                                                <Font size="15.0"/>
+                                            </font>
+                                        </Label>
+                                        <PasswordField fx:id="txtPassword"
+                                                       promptText="Enter your password"/>
+                                    </children>
+                                </VBox>
+
+                                <!-- Login button -->
+                                <Button text="Log In"
+                                        onAction="#LoginOnAction"
+                                        maxWidth="Infinity">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+
+                                <!-- Links row -->
+                                <HBox alignment="CENTER" spacing="16.0">
+                                    <children>
+                                        <Hyperlink text="Forgot Password?">
+                                            <font>
+                                                <Font size="11.0"/>
+                                            </font>
+                                        </Hyperlink>
+                                        <Label text="•" textFill="#4b5563"/>
+                                        <Hyperlink text="Sign Up"
+                                                   onAction="#RegisterOnAction">
+                                            <font>
+                                                <Font size="11.0"/>
+                                            </font>
+                                        </Hyperlink>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

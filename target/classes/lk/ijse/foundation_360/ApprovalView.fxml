@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.ApprovalViewController">
+   <children>
+      <StackPane AnchorPane.topAnchor="0.0"
+                 AnchorPane.bottomAnchor="0.0"
+                 AnchorPane.leftAnchor="0.0"
+                 AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" spacing="32.0">
+               <children>
+                  <!-- Header -->
+                  <VBox alignment="CENTER" spacing="8.0">
+                     <children>
+                        <Label text="Approval Management" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label text="Select an approval type to proceed" textFill="#9ca3af">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+
+                  <!-- Approval Buttons Card -->
+                  <VBox alignment="CENTER"
+                        spacing="16.0"
+                        prefWidth="500.0"
+                        maxWidth="600.0"
+>
+                     <children>
+                        <Button text="Cost Sheet Approval"
+                                onAction="#costSheetApproval"
+                                maxWidth="Infinity"
+                                prefHeight="50.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+
+                        <Button text="Time Approval"
+                                onAction="#timeApproval"
+                                maxWidth="Infinity"
+                                prefHeight="50.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+
+                        <Button text="Design Approval"
+                                onAction="#designApproval"
+                                maxWidth="Infinity"
+                                prefHeight="50.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+
+                        <Button text="Project Approval"
+                                onAction="#projectApproval"
+                                maxWidth="Infinity"
+                                prefHeight="50.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+
+                        <Button text="Expenses Approval"
+                                onAction="#expensesApproval"
+                                maxWidth="Infinity"
+                                prefHeight="50.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+   <stylesheets>
+      <URL value="@../../styles/app.css" />
+   </stylesheets>
+</AnchorPane>
+

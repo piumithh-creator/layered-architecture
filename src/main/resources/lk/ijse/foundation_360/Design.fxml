@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.DesignController">
+   <children>
+      <StackPane AnchorPane.topAnchor="0.0"
+                 AnchorPane.bottomAnchor="0.0"
+                 AnchorPane.leftAnchor="0.0"
+                 AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" spacing="24.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="4.0">
+                     <children>
+                        <Label text="Design Management" styleClass="heading-title" textFill="#e5e7eb">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Manage project designs" styleClass="heading-subtitle" textFill="#9ca3af">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+
+                  <VBox alignment="TOP_CENTER" spacing="18.0" maxWidth="820.0" styleClass="card">
+                     <children>
+                        <GridPane hgap="16.0" vgap="12.0">
+                           <children>
+                              <Label text="Design ID" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                              <Label text="Type" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                              <Label text="Status" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextField GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+
+                              <Label text="Description" GridPane.rowIndex="0" GridPane.columnIndex="3">
+                                 <font><Font size="13.0"/></font>
+                              </Label>
+                              <TextArea prefHeight="80.0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                           </children>
+                        </GridPane>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                           <children>
+                              <Button text="Back"/>
+                              <Button text="Add"/>
+                              <Button text="Update"/>
+                              <Button text="Delete"/>
+                              <Button text="Search"/>
+                           </children>
+                        </HBox>
+
+                        <TableView prefHeight="220.0">
+                           <columns>
+                              <TableColumn prefWidth="100.0" text="Design ID" />
+                              <TableColumn prefWidth="160.0" text="Type" />
+                              <TableColumn prefWidth="300.0" text="Description" />
+                              <TableColumn prefWidth="200.0" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets top="20" right="24" bottom="24" left="24"/>
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="24" right="24" bottom="24" left="24"/>
+               </padding>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

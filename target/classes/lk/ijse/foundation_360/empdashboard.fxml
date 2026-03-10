@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootNode"
+            prefHeight="768.0" prefWidth="1366.0"
+            stylesheets="@../../../styles/app.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.foundation_360.controller.EmpDashboardController">
+   <children>
+      <VBox AnchorPane.topAnchor="0.0"
+            AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0"
+            spacing="16.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Foundation 360" textFill="#2c5282" styleClass="heading-title">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblWelcome" text="Employee Dashboard" textFill="#718096" styleClass="heading-subtitle">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <!-- Notification Button -->
+                  <StackPane>
+                     <Button fx:id="btnNotifications" text="🔔" onAction="#showNotifications" 
+                             styleClass="notification-btn" />
+                     <Label fx:id="lblNotificationBadge" text="0" styleClass="notification-badge" 
+                            visible="false" />
+                  </StackPane>
+                  <Button text="Logout" onAction="#logout" styleClass="logout-btn" />
+               </children>
+               <padding>
+                  <Insets top="16" right="24" bottom="4" left="24" />
+               </padding>
+            </HBox>
+
+            <!-- Dashboard Summary Cards -->
+            <GridPane hgap="16.0" vgap="16.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox styleClass="summary-card" GridPane.columnIndex="0">
+                     <children>
+                        <Label text="My Tasks" styleClass="summary-card-title">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMyTasks" text="0" styleClass="summary-card-value">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" right="16.0" bottom="16.0" left="16.0" />
+                     </padding>
+                  </VBox>
+                  <VBox styleClass="summary-card" GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Active Projects" styleClass="summary-card-title">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblActiveProjects" text="0" styleClass="summary-card-value">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" right="16.0" bottom="16.0" left="16.0" />
+                     </padding>
+                  </VBox>
+                  <VBox styleClass="summary-card" GridPane.columnIndex="2">
+                     <children>
+                        <Label text="Pending Approvals" styleClass="summary-card-title">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPendingApprovals" text="0" styleClass="summary-card-value">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" right="16.0" bottom="16.0" left="16.0" />
+                     </padding>
+                  </VBox>
+                  <VBox styleClass="summary-card" GridPane.columnIndex="3">
+                     <children>
+                        <Label text="Notifications" styleClass="summary-card-title">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblNotificationCount" text="0" styleClass="summary-card-value">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="16.0" right="16.0" bottom="16.0" left="16.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="0.0" right="24.0" bottom="0.0" left="24.0" />
+               </padding>
+            </GridPane>
+
+            <!-- Main content: left nav, right content area -->
+            <HBox spacing="16.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <!-- Left-aligned navigation -->
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" 
+                              style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 0;">
+                      <content>
+                          <VBox alignment="TOP_LEFT" spacing="8.0" styleClass="card" minWidth="220.0">
+                     <children>
+                        <Label text="EMPLOYEE MODULES" textFill="#718096">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button text="📋 My Tasks" onAction="#myTasks" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="📁 Projects" onAction="#projects" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="📊 Reports" onAction="#reports" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="📝 Time Sheets" onAction="#timeSheets" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="💰 Expenses" onAction="#expenses" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="📦 Inventory" onAction="#inventory" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="✅ Approvals" onAction="#approvals" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="👥 Clients" onAction="#clients" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="🎨 Designs" onAction="#designs" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                        <Button text="📜 History" onAction="#history" maxWidth="220.0" prefHeight="40.0" styleClass="nav-button" />
+                     </children>
+                     <padding>
+                        <Insets top="16" right="16" bottom="16" left="16" />
+                     </padding>
+                  </VBox>
+                  </content>
+                  </ScrollPane>
+
+                  <!-- Dynamic content area -->
+                  <StackPane fx:id="contentArea" HBox.hgrow="ALWAYS" styleClass="card">
+                     <children>
+                        <VBox alignment="CENTER" spacing="16.0">
+                           <children>
+                              <Label text="Welcome to Your Dashboard" 
+                                     textFill="#2c5282"
+                                     wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Select a module from the navigation menu to get started"
+                                     textFill="#718096"
+                                     wrapText="true">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              
+                              <!-- Quick Action Buttons -->
+                              <HBox spacing="16.0" alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="24.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Button text="View My Tasks" onAction="#myTasks" styleClass="success-button" prefHeight="45.0" prefWidth="150.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button text="Submit Report" onAction="#reports" styleClass="button" prefHeight="45.0" prefWidth="150.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button text="View Projects" onAction="#projects" styleClass="secondary-button" prefHeight="45.0" prefWidth="150.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="40" right="40" bottom="40" left="40" />
+                     </padding>
+                  </StackPane>
+               </children>
+               <padding>
+                  <Insets top="0" right="24" bottom="24" left="24" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
