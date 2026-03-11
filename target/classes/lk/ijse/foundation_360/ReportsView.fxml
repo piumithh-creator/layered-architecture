@@ -103,8 +103,5 @@
          </children>
       </StackPane>
    </children>
-   <stylesheets>
-      <URL value="@../../styles/app.css" />
-   </stylesheets>
 </AnchorPane>
 

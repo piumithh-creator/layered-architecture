@@ -120,7 +120,7 @@
                         <Insets top="8" right="16" bottom="16" left="16" />
                     </padding>
                     <styleClass>
-                        <String>card</String>
+                        card
                     </styleClass>
                 </HBox>
             </children>

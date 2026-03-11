@@ -68,7 +68,13 @@ public class MyTasksController {
 
     public void initialize() {
         setupTableColumns();
+        
+        // Populate ComboBox items
+        cmbStatusFilter.setItems(FXCollections.observableArrayList(
+            "All Tasks", "Pending", "In Progress", "Completed", "On Hold"
+        ));
         cmbStatusFilter.setValue("All Tasks");
+        
         loadTasks();
         updateStatistics();
     }

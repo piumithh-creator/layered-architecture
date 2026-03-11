@@ -11,7 +11,9 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.foundation_360.controller.ApprovalViewController">
+            fx:controller="lk.ijse.foundation_360.controller.ApprovalViewController"
+            AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" 
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
    <children>
       <StackPane AnchorPane.topAnchor="0.0"
                  AnchorPane.bottomAnchor="0.0"
@@ -94,8 +96,5 @@
          </children>
       </StackPane>
    </children>
-   <stylesheets>
-      <URL value="@../../styles/app.css" />
-   </stylesheets>
 </AnchorPane>
 

@@ -22,21 +22,40 @@ public class LoginController_1 {
     private void LoginOnAction(ActionEvent event) {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
+        
+        // Validate input
+        if (username == null || username.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please enter your username").show();
+            return;
+        }
+        
+        if (password == null || password.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please enter your password").show();
+            return;
+        }
+        
         try {
-            String role = userBO.login(username, password);
+            String role = userBO.login(username.trim(), password);
             if (role != null) {
-                Integer userId = userBO.getUserId(username, password);
+                Integer userId = userBO.getUserId(username.trim(), password);
                 UserSession.setRole(role.toUpperCase());
-                UserSession.setUsername(username);
+                UserSession.setUsername(username.trim());
                 UserSession.setUserId(userId);
-                new Alert(Alert.AlertType.INFORMATION, "Login Successful!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Login Successful!\nWelcome, " + username.trim()).show();
                 openDashboardForRole(role, event);
             } else {
-                new Alert(Alert.AlertType.ERROR, "Invalid Username or Password!").show();
+                new Alert(Alert.AlertType.ERROR, "Login Failed!\n\nInvalid username or password.\n\nTest Credentials:\nAdmin: admin / admin123\nEmployee: emp / emp123").show();
+                txtPassword.clear();
             }
         } catch (Exception e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Database Error: " + e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, 
+                "Login Error!\n\n" + e.getMessage() + 
+                "\n\nPlease ensure:\n" +
+                "- MySQL is running on localhost:3306\n" +
+                "- Database 'foundation_360' exists\n" +
+                "- Database tables are initialized\n\n" +
+                "Run DATABASE_SETUP.sql to initialize the database.").show();
         }
     }
 

@@ -42,7 +42,7 @@ public class DbConnection {
         String password = dbProps.getProperty("db.password", "mysql");
 
         String url = String.format(
-            "jdbc:mysql://%s:%s/%s?useSSL=%s&serverTimezone=%s&allowPublicKeyRetrieval=%s&autoReconnect=%s&maxReconnects=3",
+            "jdbc:mysql://%s:%s/%s?createDatabaseIfNotExist=true&useSSL=%s&serverTimezone=%s&allowPublicKeyRetrieval=%s&autoReconnect=%s&maxReconnects=3",
             host, port, database,
             dbProps.getProperty("db.useSSL",                 "false"),
             dbProps.getProperty("db.serverTimezone",          "UTC"),

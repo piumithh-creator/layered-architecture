@@ -44,17 +44,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbStatusFilter" promptText="All Tasks" prefWidth="150.0" onAction="#filterTasks">
-               <items>
-                  <javafx.collections.FXCollections fx:factory="observableArrayList">
-                     <String>All Tasks</String>
-                     <String>Pending</String>
-                     <String>In Progress</String>
-                     <String>Completed</String>
-                     <String>On Hold</String>
-                  </javafx.collections.FXCollections>
-               </items>
-            </ComboBox>
+            <ComboBox fx:id="cmbStatusFilter" promptText="All Tasks" prefWidth="150.0" onAction="#filterTasks" />
             
             <Label text="Search:">
                <font>

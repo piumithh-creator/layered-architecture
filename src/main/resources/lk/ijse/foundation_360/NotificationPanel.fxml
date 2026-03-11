@@ -42,8 +42,5 @@
       <!-- Empty State -->
       <Label fx:id="lblEmpty" text="No notifications" styleClass="empty-label" visible="false" />
    </children>
-   <stylesheets>
-      <URL value="@../../styles/app.css" />
-   </stylesheets>
 </VBox>
 

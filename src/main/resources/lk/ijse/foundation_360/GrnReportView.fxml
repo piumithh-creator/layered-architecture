@@ -137,8 +137,5 @@
          </children>
       </VBox>
    </children>
-   <stylesheets>
-      <URL value="@../../styles/app.css" />
-   </stylesheets>
 </AnchorPane>
 
